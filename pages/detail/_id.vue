@@ -22,7 +22,14 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$route.params.id);
+    this.getPeserta();
+  },
+  methods: {
+    getPeserta() {
+      this.$axios.get("https://randomuser.me/api/").then((response) => {
+        this.peserta = response.data.results;
+      });
+    },
   },
 };
 </script>
